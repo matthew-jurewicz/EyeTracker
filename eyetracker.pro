@@ -32,6 +32,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 ios {
     CONFIG -= bitcode
+    #OpenCV
     INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv2.framework/headers"
     LIBS += \
         -F"/users/matthewjurewicz/opencv"\
@@ -39,10 +40,16 @@ ios {
         -framework avfoundation\
         -framework coremedia\
         -framework corevideo
+    #LibVLC
+    INCLUDEPATH += "/users/matthewjurewicz/libvlc/mobilevlckit.framework/headers"
+    LIBS += \
+        -F"/users/matthewjurewicz/libvlc"\
+        -framework mobilevlckit
     DEFINES += "iosflag=1"
 }
 
 android {
+    #OpenCV
     INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/jni/include"
     LIBS += \
         -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/libs/$$QMAKESPEC"\
