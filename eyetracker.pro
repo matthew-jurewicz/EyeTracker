@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    messagedialog.cpp
 
 RESOURCES += qml.qrc
 
@@ -74,3 +75,6 @@ android {
     ANDROID_SOURCE_PACKAGE_DIR = "$$_PRO_FILE_PWD_/android/$$QMAKESPEC"
     DEFINES += "androidflag=1"
 }
+
+HEADERS += \
+    messagedialog.h
