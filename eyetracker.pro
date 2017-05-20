@@ -4,7 +4,8 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    messagedialog.cpp
+    messagedialog.cpp \
+    streamprovider.cpp
 
 RESOURCES += qml.qrc
 
@@ -84,4 +85,5 @@ android {
 }
 
 HEADERS += \
-    messagedialog.h
+    messagedialog.h \
+    streamprovider.h
