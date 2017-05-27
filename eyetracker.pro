@@ -32,20 +32,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
-    CONFIG -= bitcode
-    #OpenCV
-    INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv2.framework/headers"
-    LIBS += \
-        -F"/users/matthewjurewicz/opencv"\
-        -framework opencv2\
-        -framework avfoundation\
-        -framework coremedia\
-        -framework corevideo
-    #LibVLC
-    INCLUDEPATH += "/users/matthewjurewicz/libvlc/mobilevlckit.framework/headers"
-    LIBS += \
-        -F"/users/matthewjurewicz/libvlc"\
-        -framework mobilevlckit
+    INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv-3.2.0/include"\
+        "/users/matthewjurewicz/libvlc/vlc-2.2/include"
     DEFINES += "iosflag=1"
 }
 
