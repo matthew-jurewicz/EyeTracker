@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick
+QT += qml quick network
 CONFIG += c++11
 
 SOURCES += main.cpp \
@@ -32,8 +32,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
-    INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv-3.2.0/include"\
-        "/users/matthewjurewicz/libvlc/vlc-2.2/include"
     DEFINES += "iosflag=1"
 }
 
@@ -41,8 +39,8 @@ android {
     #OpenCV
     INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/jni/include"
     LIBS += \
-        -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/libs/$$QMAKESPEC"\
-        -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/3rdparty/libs/$$QMAKESPEC"\
+        -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/libs/armeabi-v7a"\
+        -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a"\
         -libopencv_calib3d\
         -libopencv_core\
         -libopencv_features2d\
@@ -68,7 +66,7 @@ android {
         -liblibwebp\
         -libtbb\
         -libtegra_hal
-    ANDROID_SOURCE_PACKAGE_DIR = "$$_PRO_FILE_PWD_/android/$$QMAKESPEC"
+    ANDROID_SOURCE_PACKAGE_DIR = "$$_PRO_FILE_PWD_/android/armeabi-v7a"
     DEFINES += "androidflag=1"
 }
 
