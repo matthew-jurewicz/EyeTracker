@@ -5,7 +5,7 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     messagedialog.cpp \
-    streamprovider.cpp
+    streammanager.cpp
 
 RESOURCES += qml.qrc
 
@@ -32,15 +32,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
+    INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv2.framework/Headers"
+    LIBS += \
+        -F"/users/matthewjurewicz/opencv"\
+        -framework opencv2
     DEFINES += "iosflag=1"
 }
 
 android {
     #OpenCV
-    INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/jni/include"
+    INCLUDEPATH += "/users/matthewjurewicz/opencv/android-sdk/sdk/native/jni/include"
     LIBS += \
-        -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/libs/armeabi-v7a"\
-        -L"/users/matthewjurewicz/opencv/opencv-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a"\
+        -L"/users/matthewjurewicz/opencv/android-sdk/sdk/native/libs/armeabi-v7a"\
+        -L"/users/matthewjurewicz/opencv/android-sdk/sdk/native/3rdparty/libs/armeabi-v7a"\
         -libopencv_calib3d\
         -libopencv_core\
         -libopencv_features2d\
@@ -72,4 +76,4 @@ android {
 
 HEADERS += \
     messagedialog.h \
-    streamprovider.h
+    streammanager.h
