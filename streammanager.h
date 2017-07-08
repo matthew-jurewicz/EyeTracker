@@ -4,6 +4,14 @@
 #include <QObject>
 #include <QNetworkReply>
 
+#ifdef iosflag
+#endif
+
+#ifdef androidflag
+#endif
+
+using namespace cv;
+
 class StreamManager : public QObject
 {
     Q_OBJECT

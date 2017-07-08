@@ -32,19 +32,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
-    INCLUDEPATH += "/users/matthewjurewicz/opencv/opencv2.framework/Headers"
+    INCLUDEPATH += "/users/matthewjurewicz/documents/opencv/opencv2.framework/Headers"
     LIBS += \
-        -F"/users/matthewjurewicz/opencv"\
+        -F"/users/matthewjurewicz/documents/opencv"\
         -framework opencv2
     DEFINES += "iosflag=1"
 }
 
 android {
     #OpenCV
-    INCLUDEPATH += "/users/matthewjurewicz/opencv/android-sdk/sdk/native/jni/include"
+    INCLUDEPATH += "/users/matthewjurewicz/documents/opencv/android-sdk/sdk/native/jni/include"
     LIBS += \
-        -L"/users/matthewjurewicz/opencv/android-sdk/sdk/native/libs/armeabi-v7a"\
-        -L"/users/matthewjurewicz/opencv/android-sdk/sdk/native/3rdparty/libs/armeabi-v7a"\
+        -L"/users/matthewjurewicz/documents/opencv/android-sdk/sdk/native/libs/armeabi-v7a"\
+        -L"/users/matthewjurewicz/documents/opencv/android-sdk/sdk/native/3rdparty/libs/armeabi-v7a"\
         -libopencv_calib3d\
         -libopencv_core\
         -libopencv_features2d\
