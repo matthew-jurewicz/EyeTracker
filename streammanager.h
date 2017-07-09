@@ -5,6 +5,8 @@
 #include <QNetworkReply>
 
 #ifdef iosflag
+#include "core.hpp"
+#include "imgproc.hpp"
 #endif
 
 #ifdef androidflag
@@ -18,7 +20,7 @@ class StreamManager : public QObject
 public:
     explicit StreamManager(QObject *parent = 0);
     QNetworkReply *reply;
-    QByteArray *buffer;
+    QByteArray buffer;
     QString delim;
     void process(QByteArray data);
 

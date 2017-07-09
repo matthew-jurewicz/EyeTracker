@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     MessageDialog *message = new MessageDialog;
-    StreamManager *manager = new StreamManager(this);
+    StreamManager *manager = new StreamManager;
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

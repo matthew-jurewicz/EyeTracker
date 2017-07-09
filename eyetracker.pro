@@ -32,6 +32,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
+    CONFIG -= bitcode
     INCLUDEPATH += "/users/matthewjurewicz/documents/opencv/opencv2.framework/Headers"
     LIBS += \
         -F"/users/matthewjurewicz/documents/opencv"\
