@@ -22,5 +22,11 @@ void StreamManager::readyRead() {
 }
 
 void StreamManager::process(QByteArray data) {
+    Mat img(320, 240, CV_8U, data.data());
+    cvtColor(img, img, CV_BGR2GRAY);
+    GaussianBlur(img, img, Size(9, 9), 2, 2);
 
+    QVector<Vec3f> circles;
+    HoughCircles(img, circles.toStdVector(), CV_HOUGH_GRADIENT, 1, img.rows / 8, 200, 100, 0, 0);
+    Point center(cvRound(circles[0][0]), cvRound(circles[0][1]));
 }
