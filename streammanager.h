@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QNetworkReply>
+#include <QImage>
 
 #ifdef iosflag
 #include "core.hpp"
@@ -20,8 +21,7 @@ class StreamManager : public QObject
 public:
     explicit StreamManager(QObject *parent = 0);
     QNetworkReply *reply;
-    QByteArray buffer;
-    QString delim;
+    quint64 byteCount;
     void process(QByteArray data);
 
 signals:
