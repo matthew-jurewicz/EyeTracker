@@ -33,9 +33,9 @@ void StreamManager::readyRead() {
 }
 
 void StreamManager::process(QByteArray data) {
-    QImage test(data.data(), 320, 240, QImage::Format_RGB888);
+    QImage test((uchar*)data.data(), 320, 240, QImage::Format_RGB16);
 
-    Mat img(320, 240, CV_8U, data.data());
+    Mat img(320, 240, CV_16UC3, data.data());
     cvtColor(img, img, CV_BGR2GRAY);
     GaussianBlur(img, img, Size(9, 9), 2, 2);
 
